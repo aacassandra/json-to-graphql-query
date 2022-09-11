@@ -1,8 +1,16 @@
 {
-    "name": "json-to-graphql-query",
-    "version": "2.2.4",
+    "name": "@aacassandra/json-to-graphql-query",
+    "version": "2.2.5",
     "main": "lib/index.js",
+    "publishConfig": {
+        "access": "public"
+    },
     "license": "MIT",
+    "author": {
+        "name": "Alauddin Afif Cassandra",
+        "email": "alauddinafifcassandra@programmer.net",
+        "url": "https://aacassandra-github.web.app"
+    },
     "scripts": {
         "build": "tslint -p . && rm -rf lib/ && tsc",
         "test": "mocha -r ts-node/register --recursive \"./src/**/__tests__/*\"",
@@ -12,7 +20,7 @@
     "typings": "lib/index.d.ts",
     "repository": {
         "type": "git",
-        "url": "https://github.com/vkolgi/json-to-graphql-query.git"
+        "url": "https://github.com/aacassandra/json-to-graphql-query.git"
     },
     "devDependencies": {
         "@types/chai": "4.3.0",

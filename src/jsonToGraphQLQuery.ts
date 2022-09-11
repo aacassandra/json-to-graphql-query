@@ -179,11 +179,21 @@ export function jsonToGraphQLQuery(query: any, options: IJsonToGraphQLOptions = 
     queryLines.forEach(([line, level]) => {
         if (options.pretty) {
             if (output) { output += '\n'; }
-            output += getIndent(level) + line;
-        }
-        else {
+            if (line.indexOf('__on_') > -1) {
+                const name = line.replace('__on_', '')
+                output += getIndent(level) + `... on ${name}`;
+            } else {
+                output += getIndent(level) + line;
+            }
+        } else {
             if (output) { output += ' '; }
-            output += line;
+
+            if (line.indexOf('__on_') > -1) {
+                const name = line.replace('__on_', '')
+                output += `... on ${name}`;
+            } else {
+                output += line;
+            }
         }
     });
     return output;
